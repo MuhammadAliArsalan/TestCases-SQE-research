@@ -1,0 +1,49 @@
+Test_ID,Module_Name,Endpoint,Test_Type,Input_Type,Action,Expected_Result,Actual_Result,Result,Execution_Time (s),Severity
+T0001,User,signUp,Functional,PUT,Verify new user registration with valid data.,User registered successfully,User registered successfully,Pass,2.35,Medium
+T0002,User,login,Functional,POST,Check if existing user can successfully log in.,User logged in successfully,User logged in successfully,Pass,2.73,Medium
+T0004,User,logOut,Functional,POST, Confirm user session is properly terminated.,User logged out successfully,User logged out successfully,Pass,1.74,Medium
+T0005,User,getResetPwdOtp,Functional,POST, Validate OTP generation for password reset request.,Reset OTP sent on your email,Error sending OTP via email.Plz try again later,Fail,1.79,High
+T0007,User,resetPwd,Performance,POST, Ensure user can reset password using valid OTP.,Password reset successfully,Password reset successfully,Pass,2.85,Medium
+T0008,User,changePwd,Functional,PUT,Verify password can be changed when logged in.,Password updated successfully,Password updated successfully,Pass,1.02,Low
+T0010,User,getAccountDetails,Functional,GET, Ensure user profile data is retrievable.,User details fetched successfully,User details fetched successfully,Pass,1.24,High
+T0012,User,updateAccount,Functional,PUT,Validate profile update functionality.,User details updated successfully,User details updated successfully,Pass,1.43,Medium
+T0014,User,deleteAccount,Functional,DELETE, Confirm account deletion removes user and associated data.,User deleted successfully,User deleted successfully,Pass,2.42,Low
+T0016,Seller,totalSold,Functional,GET,Validate retrieval of total units sold.,Total goods sold data with complete breakdown is displayed,Total goods sold data  with complete breakdown is displayed,Pass,2.33,High
+T0017,Seller,productBreakdown,Functional,GET,Test that products belonging to the logged-in seller are displayed correctly,Products listed by the logged in user are displayed,Products listed by the logged in user are displayed,Pass,1.12,High
+T0019,Seller,monthlyAnalytics,Functional,GET,Confirm monthly sales data is correct.,Monthly sales analytics data returned successfully for the logged-in seller.," Error: column ""oi.item_type"" does not exist. Database error",Fail,0.295,High
+T0022,Seller,updateStatus,Functional,PUT, Ensure order status (e.g. pending ? shipped) is updated properly.,Order status updated successfully,Order status updated successfully,Pass,2.48,High
+T0023,Seller,getAllOrders,Functional,GET,Verify seller can retrieve all customer orders,Orders retrieved successfully,Error: column o.total_price does not exist. Database error,Fail,1.19,High
+T0024,Seller,getRentalHistory,Functional,GET,Retrieve past rental activity for a user.,Product rental history fetched successfully,Product rental history fetched successfully,Pass,2.87,Medium
+T0027,Seller,userSecondHand,Functional,GET, Check second-hand products listed by a seller,Products listed by the logged in user are fetched,Products listed by the logged in user are fetched,Pass,1.71,Medium
+T0029,SecondHand,listSecondHand,Functional,GET,List all secondhand products stored in DB,Secondhand products fetched successfully,Secondhand products fetched successfully,Pass,1.92,Medium
+T0030,SecondHand,getSecondHand,Functional,GET,List the details of a specifc second hand product selected by customer,Details of secondhand product fetched successfully,Details of secondhand product fetched successfully,Pass,1.03,High
+T0034,Review,addreview,Functional,POST,To validate that buyers can add reviews for product,Review added successfully,Review added successfully,Pass,1.82,High
+T0035,Review,allreviews,Functional,GET,To validate that sellers can get all reviews for their products,All reviews for product {product_name} fetched,All reviews for product {product_name} fetched,Pass,1.89,Medium
+T0036,Review,getProductReview,Functional,GET,ensure that reviews for a specifc product can be fetched, reviews for product {product_name} fetched,Error:prodcut ID is required. Error in routes,Fail,1.58,Medium
+T0041,Rental,rentProduct,Functional,POST,Ensure that rental order for a product is created successfully,Product appears in both product and rental tables. Rental order created,Data not reflected in rental table; violates consistency,Fail,1.72,High
+T0045,Rental,getRental,Functional,GET,Retrieve details of a single rental.,Rental details fetched successfully,Rental Details fetched successfully,Pass,2.28,High
+T0047,Rental,getUserRentals,Functional,GET,View all rentals made by a specific user.,Rental orders created by user {user_name} fetched,Rental orders created by user {user_name} fetched,Pass,2.71,Medium
+T0048,Product,addProduct,Functional,POST,Add new product to the catalog,Product added successfully,Product added successfully,Pass,1.98,High
+T0051,Product,getProduct,Functional,GET,Get product details by ID.,Details of product {product_id} fetched,Details of product {product_id} fetched,Pass,2.61,Medium
+T0052,Product,getAllProduct,Functional,GET,Get all products stored in DB,All products fetched successfully,All products fetched successfully,Pass,3.32,High
+T0054,Product,updateProduct,Functional,PATCH, Update product information.,Product details updated successfully,Product details updated successfully,Pass,1.67,Medium
+T0056,Product,deleteProduct,Functional,DELETE,Remove a product from the database.,Product deleted successfully,Product deleted successfully,Pass,1.09,Low
+T0059,Order,placeOrder,Functional,POST,Verify complete order placement process,Order placed successfully,Order placed successfully,Pass,2.38,High
+T0060,Order,details,Functional,GET,Get full details of a placed order.,Order {order_id} details fetched,Order {order_id} details fetched,Pass,2.89,Medium
+T0063,Order,status,Functional,GET,Retrieve current status of a specific order.,Order {order_id} status fetched,Order {order_id} status fetched,Pass,2.76,High
+T0066,Category,getAllCategories,Functional,GET, List all available categories.,All categories fetched successfully,All categories fetched successfully,Pass,1.73,High
+T0067,Category,getCategory,Functional,GET,Retrieve single category by ID along with its associated product,Catgeory {category_id} along with associated products fetched,Catgeory {category_id} along with associated products fetched,Pass,1.04,Medium
+T0069,Category,createCategory,Functional,POST, Validate creation of new category,Category {catefory_slug} created successfully,Category {catefory_name} created successfully,Pass,1.17,High
+T0070,Category,updateCategory,Functional,PUT,Ensure category details can be modified.,Category {catefory_slug} updated successfully,Category {catefory_slug} updated successfully,Pass,1.34,High
+T0072,Category,deleteCategory,Functional,DELETE,Confirm category removal functionality,Category {catefory_slug}deleted successfully,Category {catefory_slug}deleted successfully,Pass,1.96,Low
+T0074,Cart,add,Functional,POST,Add an item to the user’s shopping cart.,Item added to cart successfully,Item added to cart successfully,Pass,0.86,High
+T0076,Cart,delete,Functional,DELETE,Remove item from cart.,Item deleted from cart,Item delted from cart,Pass,1.9,Medium
+T0077,Cart,update,Functional,PUT,Modify quantity or details of cart item,Cart items updated successfully,Cart items updated successfully,Pass,2.13,High
+T0078,Cart,getItems,Functional,GET,Retrieve all items currently in cart.,All items in cart retrieved successfully,All items in cart retrieved successfully,Pass,1.82,Medium
+T0080,Buyer,cancel,Functional,POST,Ensure that order can be cancelled before it is shipped,Order cancelled. ,Order cancelled,Pass,1.63,High
+T0084,Admin,total-users,Functional,GET,Get total number of registered users.,All users fetched successfully,All users fetched successfully,Pass,2.43,Medium
+T0086,Admin,total-orders,Functional,GET,Retrieve total orders placed.,All orders placed successfully,All orders placed successfully,Pass,2.92,Medium
+T0089,Admin,total-revenue,Functional,GET,Get cumulative revenue generated.,Revenue generated is {total_revenue},Revenue generated is {null}.,Fail,2.7,High
+T0092,Admin,total-transactions,Functional,GET,Total number of successful transactions.,The total number of successful transactions are ___,The total number of successful transactions are ___,Pass,1.82,High
+T0093,Admin,top-selling-products,Functional,GET,Get a list of best-selling products.,Best selling products fetched successfully,Best selling products fetched successfully,Pass,2.75,High
+T0096,Admin,top-sellers,Functional,GET,Retrieve sellers with highest sale,Sellers with highest sales retreived,Sellers with highest sales retreived,Pass,2.1,Medium
